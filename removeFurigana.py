@@ -12,9 +12,9 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     resultImage = []
     listOfPixelRows = []
 
-    # if non text row, then row has only one type of pixel, white
+    # if non text row, then row either has no black pixel or only one
     def checkIfNonText(row):
-        return len(set(row)) == 1
+        return (row == 0).sum() == 1 or (row == 0).sum() == 0
 
     for row in binarizedImage:
         if (checkIfNonText(row)):
@@ -24,6 +24,7 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
             listOfPixelRows.append("text")
             resultImage.append(row)
 
+    cv2.imwrite("test.png", np.array(resultImage))
 
     # group non text and text columns into separate groups with listOfBlocks. For example: [ ["nonText", "nonText"], ["text", ]  
     listOfBlocks = []
