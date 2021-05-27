@@ -69,12 +69,11 @@ def returnResultImage(imagePath, resultImagePath="result.png"):
     # remove furigana block from a copy of the rotated orignal image
     copyOfImageFlip = imageFlip
     for furiganaBlock in listOfFuriganaBlocks:
-        copyOfImageFlip[furiganaBlock["startingIndex"]-2:furiganaBlock["endingIndex"]+2] = [80 for pixel in row]
+        copyOfImageFlip[furiganaBlock["startingIndex"]-2:furiganaBlock["endingIndex"]+2] = [255 for pixel in row]
 
-    cv2.imwrite("images/mask.png", np.array(copyOfImageFlip))
+    # cv2.imwrite("images/mask.png", np.array(copyOfImageFlip))
 
     # rotate image back to normal 
     imageRotatedToOriginal = cv2.rotate(copyOfImageFlip, cv2.ROTATE_90_CLOCKWISE)
-    # cv2.imwrite(resultImagePath, imageRotatedToOriginal)
+    cv2.imwrite(resultImagePath, imageRotatedToOriginal)
 
-returnResultImage("images/original.png")
