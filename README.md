@@ -2,7 +2,7 @@
 OpenCV, numpy
 
 ### Instruction: 
-install opencv if you haven't  
+install opencv, numpy if you haven't already  
 
 put removeFurigana.py in your folder
 
