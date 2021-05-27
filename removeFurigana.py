@@ -24,7 +24,7 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
             listOfPixelRows.append("text")
             resultImage.append(row)
 
-    cv2.imwrite("test.png", np.array(resultImage))
+    # cv2.imwrite("test.png", np.array(resultImage))
 
     # group non text and text columns into separate groups with listOfBlocks. For example: [ ["nonText", "nonText"], ["text", ]  
     listOfBlocks = []
