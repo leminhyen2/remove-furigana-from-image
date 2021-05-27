@@ -8,6 +8,11 @@ OpenCV, numpy
 - give it 2 parameters: your image path and result image path 
 - profit???
 
+### Usage: 
+    import removeFurigana 
+
+    removeFurigana.saveResultImage("images/original.png", "result1.png")  
+    
 ### Steps (in images): 
  
 ![Alt text](./images/original.png)  

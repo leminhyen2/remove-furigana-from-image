@@ -1,7 +1,7 @@
 import cv2
 import numpy as np 
 
-def returnResultImage(imagePath, resultImagePath="result.png"):
+def saveResultImage(imagePath, resultImagePath="result.png"):
     # rotate image to so opencv can read column pixels as row pixels 
     # binarize image so there are only 0, 255 (white) values
     originalImage = cv2.imread(imagePath,0)
