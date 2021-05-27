@@ -9,5 +9,7 @@ OpenCV
 
 ![Alt text](./images/segmented.png)  
 
+![Alt text](./images/filtered.png)  
+
 ![Alt text](./images/result.png)  
 

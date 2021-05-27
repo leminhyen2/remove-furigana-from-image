@@ -24,6 +24,7 @@ def returnResultImage(imagePath, resultImagePath="result.png"):
             listOfPixelRows.append("text")
             resultImage.append(row)
 
+
     # group non text and text columns into separate groups with listOfBlocks. For example: [ ["nonText", "nonText"], ["text", ]  
     listOfBlocks = []
     nontextBlock = []
@@ -70,9 +71,10 @@ def returnResultImage(imagePath, resultImagePath="result.png"):
     for furiganaBlock in listOfFuriganaBlocks:
         copyOfImageFlip[furiganaBlock["startingIndex"]-2:furiganaBlock["endingIndex"]+2] = [255 for pixel in row]
 
+    cv2.imwrite("images/filtered.png", np.array(copyOfImageFlip))
+
     # rotate image back to normal 
     imageRotatedToOriginal = cv2.rotate(copyOfImageFlip, cv2.ROTATE_90_CLOCKWISE)
-    
     # cv2.imwrite(resultImagePath, imageRotatedToOriginal)
 
 returnResultImage("images/original.png")
