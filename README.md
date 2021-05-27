@@ -11,8 +11,8 @@ OpenCV, numpy
 ### Usage: 
     import removeFurigana 
 
-    removeFurigana.saveResultImage("images/original.png", "result1.png")  
-    
+    removeFurigana.saveResultImage("images/original.png", "result.png")  
+
 ### Steps (in images): 
  
 ![Alt text](./images/original.png)  
