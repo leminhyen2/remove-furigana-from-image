@@ -1,5 +1,5 @@
 ### Dependencies: 
-OpenCV
+OpenCV, numpy
 
 ### Instruction: 
 install opencv if you haven't  
