@@ -14,7 +14,7 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
 
     # if non text row, then row either has no black pixel or only one
     def checkIfNonText(row):
-        return (row == 0).sum() == 1 or (row == 0).sum() == 0
+        return (row == 0).sum() < 4 
 
     for row in binarizedImage:
         if (checkIfNonText(row)):
