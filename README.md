@@ -7,3 +7,7 @@ OpenCV
 
 ![Alt text](./images/binarized.png)  
 
+![Alt text](./images/segmented.png)  
+
+![Alt text](./images/result.png)  
+
