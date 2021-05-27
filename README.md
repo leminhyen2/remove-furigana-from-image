@@ -1,4 +1,6 @@
 ### Dependencies: 
 OpenCV  
 
-![Alt text](./images/testImage.png)
+![Alt text](./images/original.png)
+![Alt text](./images/rotated.png)
+![Alt text](./images/binarized.png)

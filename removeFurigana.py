@@ -1,11 +1,13 @@
 import cv2
 
-def returnResultImage(resultImagePath="result.png"):
+def returnResultImage(imagePath, resultImagePath="result.png"):
     # rotate image to so opencv can read column pixels as row pixels 
     # binarize image so there are only 0, 255 (white) values
-    originalImage = cv2.imread('testImage.png',0)
+    originalImage = cv2.imread(imagePath,0)
     imageFlip = cv2.rotate(originalImage, cv2.ROTATE_90_COUNTERCLOCKWISE)
     ret, binarizedImage = cv2.threshold(imageFlip,127,255,cv2.THRESH_BINARY)
+
+    cv2.imwrite("images/binarized.png", binarizedImage)
 
     # get listOfPixelRows in the form of ["nonText", "text"] for easy filtering
     resultImage = []
@@ -71,5 +73,6 @@ def returnResultImage(resultImagePath="result.png"):
 
     # rotate image back to normal 
     imageRotatedToOriginal = cv2.rotate(copyOfImageFlip, cv2.ROTATE_90_CLOCKWISE)
-    cv2.imwrite(resultImagePath, imageRotatedToOriginal)
+    # cv2.imwrite(resultImagePath, imageRotatedToOriginal)
 
+returnResultImage("images/original.png")
