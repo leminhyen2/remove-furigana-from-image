@@ -56,16 +56,16 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
         startingIndex = startingIndexInImage
         startingIndexInImage = startingIndexInImage + len(block)
         if (block[0] == "text"):
-            listOFilteredBlocks.append({"isTextBlockOrNot": True, "value": block, "blockLength": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
+            listOFilteredBlocks.append({"isTextBlockOrNot": True, "value": block, "blockHeight": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
         else:
-            listOFilteredBlocks.append({"isTextBlockOrNot": False, "value": block, "blockLength": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
+            listOFilteredBlocks.append({"isTextBlockOrNot": False, "value": block, "blockHeight": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
 
     # get the height of the biggest text block 
-    listOfTextBoxHeight = [block["blockLength"] for block in listOFilteredBlocks if block["isTextBlockOrNot"] == True]
+    listOfTextBoxHeight = [block["blockHeight"] for block in listOFilteredBlocks if block["isTextBlockOrNot"] == True]
     widthOfBiggestTextBlock = max(listOfTextBoxHeight)
 
-    # get only furigana blocks if block is less than or equal to half of biggest block's width
-    listOfFuriganaBlocks = [block for block in listOFilteredBlocks if (block["isTextBlockOrNot"] == True and block["blockLength"] <= widthOfBiggestTextBlock/2)]
+    # get only furigana blocks if block is less than or equal to half of biggest block's height
+    listOfFuriganaBlocks = [block for block in listOFilteredBlocks if (block["isTextBlockOrNot"] == True and block["blockHeight"] <= widthOfBiggestTextBlock/2)]
 
     # remove furigana block from a copy of the rotated orignal image
     copyOfImageFlip = imageFlip
