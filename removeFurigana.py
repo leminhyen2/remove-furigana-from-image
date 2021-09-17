@@ -54,9 +54,9 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     startingIndex = 0
     for index, block in enumerate(listOfBlocks):
         if (block[0] == "text"):
-            listOFilteredBlocks.append({"isTextBlockOrNot": True, "value": block, "blockHeight": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
+            listOFilteredBlocks.append({"isTextBlockOrNot": True, "value": block, "blockHeight": len(block), "blockIndex": index, "heightY1start": startingIndex, "heightY2end": startingIndex+len(block)-1})
         else:
-            listOFilteredBlocks.append({"isTextBlockOrNot": False, "value": block, "blockHeight": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
+            listOFilteredBlocks.append({"isTextBlockOrNot": False, "value": block, "blockHeight": len(block), "blockIndex": index, "heightY1start": startingIndex, "heightY2end": startingIndex+len(block)-1})
         startingIndex = startingIndex + len(block)
 
 
@@ -70,7 +70,7 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     # remove furigana block from a copy of the rotated orignal image
     copyOfImageFlip = imageFlip
     for furiganaBlock in listOfFuriganaBlocks:
-        copyOfImageFlip[furiganaBlock["startingIndex"]-2:furiganaBlock["endingIndex"]+2] = [255 for pixel in row]
+        copyOfImageFlip[furiganaBlock["heightY1start"]-2:furiganaBlock["heightY2end"]+2] = [255 for pixel in row]
 
     # cv2.imwrite("images/mask.png", np.array(copyOfImageFlip))
 
@@ -78,4 +78,4 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     imageRotatedToOriginal = cv2.rotate(copyOfImageFlip, cv2.ROTATE_90_CLOCKWISE)
     cv2.imwrite(resultImagePath, imageRotatedToOriginal)
 
-# saveResultImage("croppedImage.png")
+saveResultImage("croppedImage.png")
