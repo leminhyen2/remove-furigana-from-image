@@ -51,14 +51,14 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     # convert block from list to object and add properties to each block for further processing 
     listOFilteredBlocks = []
 
-    startingIndexInImage = 0
+    startingIndex = 0
     for index, block in enumerate(listOfBlocks):
-        startingIndex = startingIndexInImage
-        startingIndexInImage = startingIndexInImage + len(block)
         if (block[0] == "text"):
             listOFilteredBlocks.append({"isTextBlockOrNot": True, "value": block, "blockHeight": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
         else:
             listOFilteredBlocks.append({"isTextBlockOrNot": False, "value": block, "blockHeight": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
+        startingIndex = startingIndex + len(block)
+
 
     # get the height of the biggest text block 
     listOfTextBoxHeight = [block["blockHeight"] for block in listOFilteredBlocks if block["isTextBlockOrNot"] == True]
@@ -78,3 +78,4 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     imageRotatedToOriginal = cv2.rotate(copyOfImageFlip, cv2.ROTATE_90_CLOCKWISE)
     cv2.imwrite(resultImagePath, imageRotatedToOriginal)
 
+# saveResultImage("croppedImage.png")
