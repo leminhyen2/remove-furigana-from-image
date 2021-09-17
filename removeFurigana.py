@@ -78,4 +78,4 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
     imageRotatedToOriginal = cv2.rotate(copyOfImageFlip, cv2.ROTATE_90_CLOCKWISE)
     cv2.imwrite(resultImagePath, imageRotatedToOriginal)
 
-saveResultImage("croppedImage.png")
+# saveResultImage("croppedImage.png")
