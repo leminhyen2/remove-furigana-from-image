@@ -60,9 +60,9 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
         else:
             listOFilteredBlocks.append({"isTextBlockOrNot": False, "value": block, "blockLength": len(block), "blockIndex": index, "startingIndex": startingIndex, "endingIndex": startingIndex+len(block)-1})
 
-    # get the width of the biggest text block 
-    listOfTextBlocks = [block["blockLength"] for block in listOFilteredBlocks if block["isTextBlockOrNot"] == True]
-    widthOfBiggestTextBlock = max(listOfTextBlocks)
+    # get the height of the biggest text block 
+    listOfTextBoxHeight = [block["blockLength"] for block in listOFilteredBlocks if block["isTextBlockOrNot"] == True]
+    widthOfBiggestTextBlock = max(listOfTextBoxHeight)
 
     # get only furigana blocks if block is less than or equal to half of biggest block's width
     listOfFuriganaBlocks = [block for block in listOFilteredBlocks if (block["isTextBlockOrNot"] == True and block["blockLength"] <= widthOfBiggestTextBlock/2)]

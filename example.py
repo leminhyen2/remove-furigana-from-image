@@ -1,3 +1,3 @@
 import removeFurigana 
 
-removeFurigana.saveResultImage("images/original.png", "result1.png")
+removeFurigana.saveResultImage("croppedImage.png", "result.png")
