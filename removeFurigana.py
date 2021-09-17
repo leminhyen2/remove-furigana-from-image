@@ -62,10 +62,10 @@ def saveResultImage(imagePath, resultImagePath="result.png"):
 
     # get the height of the biggest text block 
     listOfTextBoxHeight = [block["blockHeight"] for block in listOFilteredBlocks if block["isTextBlockOrNot"] == True]
-    widthOfBiggestTextBlock = max(listOfTextBoxHeight)
+    heightOfTheBiggestTextBlock = max(listOfTextBoxHeight)
 
     # get only furigana blocks if block is less than or equal to half of biggest block's height
-    listOfFuriganaBlocks = [block for block in listOFilteredBlocks if (block["isTextBlockOrNot"] == True and block["blockHeight"] <= widthOfBiggestTextBlock/2)]
+    listOfFuriganaBlocks = [block for block in listOFilteredBlocks if (block["isTextBlockOrNot"] == True and block["blockHeight"] <= heightOfTheBiggestTextBlock/2)]
 
     # remove furigana block from a copy of the rotated orignal image
     copyOfImageFlip = imageFlip
